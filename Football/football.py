@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv('european_soccer.csv')
 
@@ -13,6 +14,7 @@ counter2= df[(df['HomeTeam'] == team2) & (df['AwayTeam'] == team1)].shape
 frequency = counter1[0] + counter2[0]
 
 print(team1 + " has played " + team2 + " on " + str(frequency) + " different ocassions")
+
 
 
 #PROBLEM 2: HOW MANY GOALS A TEAM SCORED

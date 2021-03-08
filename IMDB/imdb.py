@@ -1,5 +1,5 @@
 import pandas as pd
-from pandas import Index
+import matplotlib.pyplot as plt
 
 df = pd.read_csv('imdb_top_1000.csv')
 
