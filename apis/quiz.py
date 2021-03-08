@@ -1,4 +1,5 @@
 import requests
+import random
 
 response = requests.get('https://opentdb.com/api.php?amount=5&category=12&difficulty=medium&type=multiple')
 
@@ -18,6 +19,7 @@ class Quiz:
                 self.question = data['results'][x]['question']
                 self.options = data['results'][x]['incorrect_answers']
                 self.options.append(data['results'][x]['correct_answer'])
+                random.shuffle(self.options)
                 print(self.question)
                 answer = self.get_answer()
 
