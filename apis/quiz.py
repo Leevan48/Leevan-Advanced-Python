@@ -1,6 +1,7 @@
 import requests
 import random
 
+
 response = requests.get('https://opentdb.com/api.php?amount=5&category=12&difficulty=medium&type=multiple')
 
 
@@ -14,7 +15,7 @@ class Quiz:
             print('Error', response.status_code)
         else:
             self.data = response.json()
-            correct_answers = 0
+
             for x in range(5):
                 self.question = self.data['results'][x]['question']
                 self.options = self.data['results'][x]['incorrect_answers']
@@ -37,6 +38,8 @@ class Quiz:
         if self.answer == self.data['results'][x]['correct_answer']:
             self.correct_answers += 1
             print('Correct!')
+        else:
+            print('Incorrect! The correct answer is ' + self.data['results'][x]['correct_answer'])
 
     def display_score(self):
         print('You got ' + str(self.correct_answers) + ' questions correct')
